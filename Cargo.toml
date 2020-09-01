@@ -18,3 +18,8 @@ percent-encoding = "2.1.0"
 version = "0.4.5"
 default-features = false
 features = ["json"]
+
+#rustup override set nightly
+#wsl needs: 
+#   export RUSTUP_IO_THREADS=1
+#   uncomment openssl
