@@ -20,6 +20,8 @@ default-features = false
 features = ["json"]
 
 #rustup override set nightly
-#wsl needs: 
-#   export RUSTUP_IO_THREADS=1
-#   uncomment openssl
+#wsl needs: export RUSTUP_IO_THREADS=1
+
+#1PahzgmIfKY_TtkDjEtN6xEbZieRsAXPk
+
+
