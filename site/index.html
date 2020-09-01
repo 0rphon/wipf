@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		
+		<!-- JS -->
+		<script src="index.js"></script>
+
+		<title>Wipf</title>
+	</head>
+	<body>
+	  	<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12 topHeader">
+					<div class="jumbotron jumbotron-fluid topJumbo">
+						<div class="container">
+							<h1 class="display-4">Wipf</h1>
+							<p class="lead">A Zipf's law analyzation tool for Wikipedia pages</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row infoSection">
+				<div class="col"></div>
+				<div class="col-lg-3">
+					<h1>What is Zipf?</h1>
+					<p><a href="https://en.wikipedia.org/wiki/Zipf%27s_law">Zipf's law</a>, or the Zipfian distribution, 
+						is an empirical law that states that the amount of times a word is used in a document is directly proportional 
+						to its rank among how often other words were used. 
+						Meaning the second most common word in a book is used 1/2 as much as the most common word, 
+						the third most common 1/3rd as much, the 4th 1/th as much, and so on. Based on this, we can theoretically 
+						predict how often each word is used by comparing the most common word to the Zipfian distribution.</p>
+				</div>
+				<div class="col-lg-3">
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/fCn8zs912OE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+				<div class="col"></div>
+			</div>
+
+			<form class="form-group" onsubmit="return form_submit()">
+				<div class="row">
+					<div class="col"></div>
+					<div class="col-sm-12 col-md-6">
+						<div class="form-group mx-sm-3 mb-2">
+							<input type="text" class="form-control" id="wikiPage" placeholder="Wikipedia Page Name">
+						</div>
+					</div>
+					<div class="col"></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-0 col-md-3"></div>
+					<div class="col-sm-6 col-md-3 formButton">
+						<button type="submit" class="btn btn-primary mb-2">Generate</button>
+					</div>
+					<div class="col-sm-6 col-md-3 formButton">
+						<button type="button" class="btn btn-primary mb-2" onclick="random_submit()">Random</button>
+					</div>
+					<div class="col-sm-0 col-md-3"></div>
+				</div>
+			</form>
+
+			<div id="chartContainer2" style="height: 370px; width: 100%;"></div>
+			<div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+
+		</div>
+
+		<!--graph stuff-->
+		<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	</body>
+</html>

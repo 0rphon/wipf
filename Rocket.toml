@@ -1,0 +1,7 @@
+[development]
+address = "localhost"
+port = 8000
+
+[production]
+address = "10.0.0.132"
+port = 42069

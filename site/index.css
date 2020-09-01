@@ -1,0 +1,29 @@
+body {
+    background-color: #292929;
+}
+
+h1 {
+    color: red;
+}
+
+.topHeader {
+    text-align: center;
+}
+
+.topJumbo {
+    background-color: #6d7a88;
+}
+
+.infoSection {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+p {
+    color: white;
+}
+
+.formButton {
+    text-align: center !important;
+    max-width: 50%;
+}
