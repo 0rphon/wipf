@@ -9,7 +9,7 @@ use std::error;
 use std::collections::HashMap;
 
 const VALID_CHARS: [char;26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-const INVALID_WORDS: [&str;10] = ["mw", "cs", "org", "svg","em","output","parser","wikipedia","wikimedia","url"];
+const INVALID_WORDS: [&str;13] = ["mw", "cs", "org", "svg","em","output","parser","wikipedia","wikimedia","url","n","s","px"];
 
 #[derive(Debug)]
 pub enum CustomError {
