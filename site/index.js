@@ -79,9 +79,9 @@ function do_graphs(pageName) {
                 lineThickness: 1,
             },
             axisY2: {
-                title: "Internet Users",
+                title: "Times Used",
                 titleFontColor: "#51CDA0",
-                logarithmic: false, //change it to true
+                logarithmic: false,
                 includeZero: true,
                 lineColor: "#51CDA0",
                 gridThickness: 0,
@@ -114,7 +114,6 @@ function do_graphs(pageName) {
 
 
     var url = "http://73.12.196.137:42069/api/"+pageName;
-    //var url = "http://localhost:8000/api/"+pageName;
     $.getJSON(url, function(resp) {
         if (resp.error != null) {
             console.log(resp.error)
@@ -127,11 +126,6 @@ function do_graphs(pageName) {
 
 
 }
-
-//pass json response to both do_bar and do_line
-//probably orient graph better
-//change error check to go_graphs instead if in do_bar
-//function to calc ideal zipfs based off top value in json
 
 
 
