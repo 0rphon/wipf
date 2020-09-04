@@ -12,21 +12,21 @@ const VALID_CHARS: [char;26] = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'
 const INVALID_WORDS: [&str;13] = ["mw", "cs", "org", "svg","em","output","parser","wikipedia","wikimedia","url","n","s","px"];
 
 #[derive(Debug)]
-pub enum CustomError {
+pub enum WikiAPI {
     UrlError(String, u16),
     PageNameError(String),
     NoBodyError,
 }
-impl fmt::Display for CustomError {
+impl fmt::Display for WikiAPI {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         match self {
-            CustomError::UrlError(url, code)    => write!(f, "UrlError: {} returned status code {}",url,code),
-            CustomError::PageNameError(url)     => write!(f, "PageNameError: failed to get page name for {}", url),
-            CustomError::NoBodyError            => write!(f, "NoBodyError: html response did not contain body"),
+            WikiAPI::UrlError(url, code)    => write!(f, "UrlError: {} returned status code {}",url,code),
+            WikiAPI::PageNameError(url)     => write!(f, "PageNameError: failed to get page name for {}", url),
+            WikiAPI::NoBodyError            => write!(f, "NoBodyError: html response did not contain body"),
         }
     }
 }
-impl error::Error for CustomError {}
+impl error::Error for WikiAPI {}
 
 
 
@@ -39,14 +39,14 @@ pub struct Page {
 pub fn get_html(url: &str) -> Result <Page, Box<dyn error::Error>>{
     let resp = blocking::get(url)?;
     if !resp.status().is_success() {
-        return Err(Box::new(CustomError::UrlError(
+        return Err(Box::new(WikiAPI::UrlError(
             url.to_string(),
             resp.status().as_u16()))
         )
     };
     //decode url and get page name
     let page_name = percent_decode_str(resp.url().as_str()).decode_utf8_lossy().split("/").last()
-        .ok_or(CustomError::PageNameError(resp.url().to_string()))?
+        .ok_or(WikiAPI::PageNameError(resp.url().to_string()))?
         .to_string().replace("_", " ");
     Ok(Page{data: Document::from_read(resp)?, name: page_name})
 }
@@ -65,7 +65,7 @@ pub fn get_page_data(url: String) -> Result<PageData, Box<dyn error::Error>> {
     let mut text = Vec::new();
     //for each node in body
     for node in page.data.find(Name("body")).next()
-        .ok_or(CustomError::NoBodyError)?.descendants() {
+        .ok_or(WikiAPI::NoBodyError)?.descendants() {
         //if node contains text
         if let Some(words) = node.as_text() {
             //replace invalid chars with space
